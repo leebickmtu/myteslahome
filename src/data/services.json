@@ -1,0 +1,27 @@
+{
+    "hulu": {
+        "name": "Hulu",
+        "icon": "hulu.png",
+        "link": "https://hulu.com"
+    },
+    "netflix": {
+        "name": "Netflix",
+        "icon": "netflix.png",
+        "link": "https://netflix.com"
+    },
+    "twitch": {
+        "name": "Twitch",
+        "icon": "twitch.png",
+        "link": "https://twitch.com"
+    },
+    "disney_plus": {
+        "name": "Disney+",
+        "icon": "disney_plus.png",
+        "link": "https://disneyplus.com"
+    },
+    "plex": {
+        "name": "Plex",
+        "icon": "plex.png",
+        "link": "https://plex.tv"
+    }
+}
