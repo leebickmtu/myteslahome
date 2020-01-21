@@ -45,7 +45,6 @@ html, body {
   height: 100vh;
   width: 100vw;
   overflow-y: auto;
-  margin-bottom: 80px;
 }
 
 .btn {
