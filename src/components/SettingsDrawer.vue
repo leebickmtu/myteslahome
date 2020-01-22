@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer id="settings-drawer" app dark right :value="settingsOpen" @input="setSettingsOpen">
+  <v-navigation-drawer id="settings-drawer" app dark left :value="settingsOpen" @input="setSettingsOpen">
     <h1 id="drawer-label">Settings</h1>
     <v-divider></v-divider>
 

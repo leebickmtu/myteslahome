@@ -3,9 +3,9 @@
     <SettingsDrawer />
     <v-content>
       <div id="url-input">
-        <v-text-field v-model="customUrl" placeholder="Enter address to navigate to a site or select below" solo dark dense @keyup.enter="navigateToSite()"></v-text-field>
+        <v-text-field v-model="customUrl" placeholder="Enter an address here to navigate to a site or select below" solo dark dense @keyup.enter="navigateToSite()"></v-text-field>
       </div>
-      <div id="fullscreen-btn" v-if="showFullscreenButton">
+      <div id="fullscreen-btn" class="text-center" v-if="showFullscreenButton">
         <v-btn @click="fullscreenTrick()" color="blue darken-2" dark>Go Fullscreen (car must be in park)</v-btn>
       </div>
       <HomePanel id="home-panel" />
@@ -76,6 +76,7 @@ export default {
     fullscreenTrick() {
       this.dialog = true
       window.setTimeout(() => {
+        this.dialog = false
         window.location.assign(`https://youtube.com/redirect?q=${this.locationOrigin}`)
       }, 5000)
     }
@@ -88,7 +89,7 @@ export default {
 
 <style>
 #app {
-  color: #2c3e50;
+  color: white;
   background-color: black;
 }
 </style>
@@ -102,7 +103,6 @@ export default {
   position: sticky;
   top: 80px;
   width:100%;
-  text-align: center;
 }
 
 #home-panel {
@@ -112,10 +112,13 @@ export default {
 #drawer-toggle {
   position: absolute;
   top: 15px;
-  right: 15px;
+  left: 15px;
 }
 
 #dialog-message {
   font-weight: bold;
+  font-size: 1.3em;
+  color: white;
+  padding: 10px;
 }
 </style>

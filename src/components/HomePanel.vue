@@ -1,10 +1,13 @@
 <template>
-  <div class="home-panel">
-    <div class="app-tile" v-for="service in enabledServices" :key="service.key">
-      <a :href="service.link">
-        <img class="app-image" :src="getImgUrl(service.icon)" :alt="service.name">
-      </a>
+  <div class="text-center">
+    <div class="home-panel">
+      <div class="app-tile" v-for="service in enabledServices" :key="service.key">
+        <a :href="service.link">
+          <img class="app-image" :src="getImgUrl(service.icon)" :alt="service.name">
+        </a>
+      </div>
     </div>
+    <div>More services can be added from the settings menu (changes will be saved)</div>
   </div>
 </template>
 
