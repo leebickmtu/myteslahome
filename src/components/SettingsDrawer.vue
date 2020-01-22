@@ -4,14 +4,14 @@
     <v-divider></v-divider>
 
     <v-list>
-      <v-list-item v-for="service of enabledServices" :key="service.key">
-        <div class="checkbox checked" @click="removeEnabledServiceKey(service.key)"></div>
+      <v-list-item v-for="service of enabledServices" :key="service.key" @click="removeEnabledServiceKey(service.key)">
+        <div class="checkbox checked"></div>
         {{service.name}}
       </v-list-item>
     </v-list>
     <v-list>
-      <v-list-item v-for="service of disabledServices" :key="service.key">
-        <div class="checkbox" @click="addEnabledServiceKey(service.key)"></div>
+      <v-list-item v-for="service of disabledServices" :key="service.key" @click="addEnabledServiceKey(service.key)">
+        <div class="checkbox"></div>
         {{service.name}}
       </v-list-item>
     </v-list>
