@@ -98,5 +98,20 @@
         "name": "Sling",
         "icon": "sling.png",
         "link": "https://sling.com"
+    }, {
+        "key": "apple_tv_plus",
+        "name": "Apple TV+",
+        "icon": "apple_tv_plus.png",
+        "link": "https://tv.apple.com"
+    }, {
+        "key": "youtube_tv",
+        "name": "Youtube TV",
+        "icon": "youtube_tv.png",
+        "link": "https://tv.youtube.com"
+    }, {
+        "key": "shudder",
+        "name": "Shudder",
+        "icon": "shudder.png",
+        "link": "https://shudder.com"
     }
 ]
