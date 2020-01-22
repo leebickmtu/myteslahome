@@ -1,6 +1,6 @@
 <template>
   <div class="home-panel">
-    <div class="app-tile" v-for="service in services" v-bind:key="service.key">
+    <div class="app-tile" v-for="service in services" :key="service.key">
       <a :href="service.link">
         <img class="app-image" :src="getImgUrl(service.icon)" :alt="service.name">
       </a>
@@ -11,6 +11,7 @@
 <script>
 import _ from 'lodash'
 import serviceData from '../data/services.json'
+
 export default {
   name: 'HomePanel',
   data: function() {

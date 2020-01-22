@@ -1,24 +1,26 @@
 <template>
-  <div id="app">
-    <HomePanel id="home-panel" />
-    <div id="fullscreen-btn" v-if="showFullscreenButton">
-      <a :href="`https://youtube.com/redirect?q=${myUrl}`">
-        <button class="btn">Go Fullscreen (car must be in park)</button>
-      </a>
-    </div>
-  </div>
+  <v-app id="app">
+    <v-content>
+      <HomePanel id="home-panel" />
+      <div id="fullscreen-btn" v-if="showFullscreenButton">
+        <a :href="`https://youtube.com/redirect?q=${locationOrigin}`">
+          <v-btn color="secondary" dark>Go Fullscreen (car must be in park)</v-btn>
+        </a>
+      </div>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
 import HomePanel from './components/HomePanel.vue'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     HomePanel
   },
   computed: {
-    myUrl: function() {
+    locationOrigin: function() {
       return window.location.origin
     },
     showFullscreenButton: function() {
@@ -29,35 +31,9 @@ export default {
 </script>
 
 <style>
-html, body {
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-}
-
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   background-color: black;
-  height: 100vh;
-  width: 100vw;
-  overflow-y: auto;
-}
-
-.btn {
-  background-color: #008CBA;
-  border: none;
-  color: white;
-  padding: 10px 22px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
 }
 </style>
 
@@ -66,6 +42,7 @@ html, body {
   position: fixed;
   bottom: 5px;
   width:100%;
+  text-align: center;
 }
 
 #home-panel {
