@@ -1,23 +1,53 @@
 <template>
   <v-app id="app">
+    <SettingsDrawer />
     <v-content>
-      <HomePanel id="home-panel" />
-      <div id="fullscreen-btn" v-if="showFullscreenButton">
-        <a :href="`https://youtube.com/redirect?q=${locationOrigin}`">
-          <v-btn color="secondary" dark>Go Fullscreen (car must be in park)</v-btn>
-        </a>
+      <div id="url-input">
+        <v-text-field v-model="customUrl" placeholder="Enter address to navigate to a site or select below" solo dark dense @keyup.enter="navigateToSite()"></v-text-field>
       </div>
+      <div id="fullscreen-btn" v-if="showFullscreenButton">
+        <v-btn @click="fullscreenTrick()" color="blue darken-2" dark>Go Fullscreen (car must be in park)</v-btn>
+      </div>
+      <HomePanel id="home-panel" />
+      <v-app-bar-nav-icon id="drawer-toggle" dark @click="toggleSettingsOpen()"></v-app-bar-nav-icon>
+
+      <v-dialog
+        v-model="dialog"
+        hide-overlay
+        persistent
+        width="300">
+
+        <v-card color="blue darken-2" dark>
+          <v-card-text>
+            <div id="dialog-message">Select "Go to Site" on the next page.</div>
+            <v-progress-linear
+              indeterminate
+              color="white"
+              class="mb-0"
+            ></v-progress-linear>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import HomePanel from './components/HomePanel.vue'
+import SettingsDrawer from './components/SettingsDrawer.vue'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'App',
   components: {
-    HomePanel
+    HomePanel,
+    SettingsDrawer
+  },
+  data: function() {
+    return {
+      dialog: false,
+      customUrl: ''
+    }
   },
   computed: {
     locationOrigin: function() {
@@ -26,6 +56,32 @@ export default {
     showFullscreenButton: function() {
       return !document.referrer.includes('youtube')
     }
+  },
+  methods: {
+    ...mapActions('data', ['loadEnabledServiceKeys', 'toggleSettingsOpen']),
+
+    navigateToSite() {
+      let parsed = this.customUrl.trim()
+      if (!parsed.startsWith('http') && !parsed.startsWith('https')) {
+        parsed = `http://${parsed}`
+      }
+      try {
+        const url = new URL(parsed)
+        window.location.assign(url)
+      }
+      catch {
+        // ignore error
+      }
+    },
+    fullscreenTrick() {
+      this.dialog = true
+      window.setTimeout(() => {
+        window.location.assign(`https://youtube.com/redirect?q=${this.locationOrigin}`)
+      }, 5000)
+    }
+  },
+  created: function() {
+    this.loadEnabledServiceKeys()
   }
 }
 </script>
@@ -38,14 +94,28 @@ export default {
 </style>
 
 <style scoped>
+#url-input {
+  margin: 20px 100px -30px 100px;
+}
+
 #fullscreen-btn {
-  position: fixed;
-  bottom: 5px;
+  position: sticky;
+  top: 80px;
   width:100%;
   text-align: center;
 }
 
 #home-panel {
   margin-bottom: 30px;
+}
+
+#drawer-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+#dialog-message {
+  font-weight: bold;
 }
 </style>

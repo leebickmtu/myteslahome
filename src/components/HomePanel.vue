@@ -1,6 +1,6 @@
 <template>
   <div class="home-panel">
-    <div class="app-tile" v-for="service in services" :key="service.key">
+    <div class="app-tile" v-for="service in enabledServices" :key="service.key">
       <a :href="service.link">
         <img class="app-image" :src="getImgUrl(service.icon)" :alt="service.name">
       </a>
@@ -9,25 +9,12 @@
 </template>
 
 <script>
-import _ from 'lodash'
-import serviceData from '../data/services.json'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'HomePanel',
-  data: function() {
-    return {
-      serviceData
-    }
-  },
   computed: {
-    services: function() {
-      const serviceArray = Object.entries(this.serviceData).map(([key, value]) => {
-        value.key = key
-        return value
-      })
-
-      return _.orderBy(serviceArray, ['name'], ['asc'])
-    }
+    ...mapGetters('data', ['enabledServices'])
   },
   methods: {
     getImgUrl: function(iconPath) {
@@ -54,7 +41,7 @@ export default {
 }
 .app-tile {
   width: 300px;
-  height: 130px;
+  height: 110px;
   margin: 40px;
   padding: 5px;
 }

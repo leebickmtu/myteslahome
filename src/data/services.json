@@ -1,27 +1,87 @@
-{
-    "hulu": {
+[
+    {
+        "key": "hulu",
         "name": "Hulu",
         "icon": "hulu.png",
-        "link": "https://hulu.com"
-    },
-    "netflix": {
+        "link": "https://hulu.com",
+        "default": true
+    }, {
+        "key": "netflix",
         "name": "Netflix",
         "icon": "netflix.png",
-        "link": "https://netflix.com"
-    },
-    "twitch": {
+        "link": "https://netflix.com",
+        "default": true
+    }, {
+        "key": "twitch",
         "name": "Twitch",
         "icon": "twitch.png",
         "link": "https://twitch.com"
-    },
-    "disney_plus": {
+    }, {
+        "key": "disney_plus",
         "name": "Disney+",
         "icon": "disney_plus.png",
-        "link": "https://disneyplus.com"
-    },
-    "plex": {
+        "link": "https://disneyplus.com",
+        "default": true
+    }, {
+        "key": "plex",
         "name": "Plex",
         "icon": "plex.png",
         "link": "https://plex.tv"
+    }, {
+        "key": "pluto",
+        "name": "Pluto TV",
+        "icon": "pluto.png",
+        "link": "https://pluto.tv"
+    }, {
+        "key": "tubi",
+        "name": "Tubi",
+        "icon": "tubi.png",
+        "link": "https://tubitv.com"
+    }, {
+        "key": "youtube",
+        "name": "YouTube",
+        "icon": "youtube.png",
+        "link": "https://youtube.com",
+        "default": true
+    }, {
+        "key": "hbo_now",
+        "name": "HBO NOW",
+        "icon": "hbo_now.png",
+        "link": "https://hbonow.com"
+    }, {
+        "key": "hbo_go",
+        "name": "HBO GO",
+        "icon": "hbo_go.png",
+        "link": "https://hbogo.com"
+    }, {
+        "key": "espn",
+        "name": "ESPN",
+        "icon": "espn.png",
+        "link": "https://espn.com/watch"
+    }, {
+        "key": "cbs_allaccess",
+        "name": "CBS All Access",
+        "icon": "cbs_allaccess.png",
+        "link": "https://cbs.com/all-access"
+    }, {
+        "key": "fubo",
+        "name": "Fubo",
+        "icon": "fubo.png",
+        "link": "https://fubo.tv"
+    }, {
+        "key": "twitter",
+        "name": "Twitter",
+        "icon": "twitter.png",
+        "link": "https://twitter.com"
+    }, {
+        "key": "facebook",
+        "name": "Facebook",
+        "icon": "facebook.png",
+        "link": "https://facebook.com"
+    }, {
+        "key": "reddit",
+        "name": "Reddit",
+        "icon": "reddit.png",
+        "link": "https://reddit.com"
     }
-}
+]
