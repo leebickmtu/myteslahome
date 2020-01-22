@@ -83,5 +83,20 @@
         "name": "Reddit",
         "icon": "reddit.png",
         "link": "https://reddit.com"
+    }, {
+        "key": "prime_video",
+        "name": "Amazon Prime Video",
+        "icon": "prime_video.png",
+        "link": "https://primevideo.com"
+    }, {
+        "key": "crackle",
+        "name": "Crackle",
+        "icon": "crackle.png",
+        "link": "https://crackle.com"
+    }, {
+        "key": "sling",
+        "name": "Sling",
+        "icon": "sling.png",
+        "link": "https://sling.com"
     }
 ]
