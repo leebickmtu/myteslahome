@@ -4,114 +4,154 @@
         "name": "Hulu",
         "icon": "hulu.png",
         "link": "https://hulu.com",
+        "category": "media",
         "default": true
     }, {
         "key": "netflix",
         "name": "Netflix",
         "icon": "netflix.png",
         "link": "https://netflix.com",
+        "category": "media",
         "default": true
     }, {
         "key": "twitch",
         "name": "Twitch",
         "icon": "twitch.png",
-        "link": "https://twitch.com"
+        "link": "https://twitch.com",
+        "category": "media"
     }, {
         "key": "disney_plus",
         "name": "Disney+",
         "icon": "disney_plus.png",
         "link": "https://disneyplus.com",
+        "category": "media",
         "default": true
     }, {
         "key": "plex",
         "name": "Plex",
         "icon": "plex.png",
-        "link": "https://plex.tv"
+        "link": "https://plex.tv",
+        "category": "media"
     }, {
         "key": "pluto",
         "name": "Pluto TV",
         "icon": "pluto.png",
-        "link": "https://pluto.tv"
+        "link": "https://pluto.tv",
+        "category": "media"
     }, {
         "key": "tubi",
         "name": "Tubi",
         "icon": "tubi.png",
-        "link": "https://tubitv.com"
+        "link": "https://tubitv.com",
+        "category": "media"
     }, {
         "key": "youtube",
         "name": "YouTube",
         "icon": "youtube.png",
         "link": "https://youtube.com",
+        "category": "media",
         "default": true
     }, {
         "key": "hbo_now",
         "name": "HBO NOW",
         "icon": "hbo_now.png",
-        "link": "https://hbonow.com"
+        "link": "https://hbonow.com",
+        "category": "media"
     }, {
         "key": "hbo_go",
         "name": "HBO GO",
         "icon": "hbo_go.png",
-        "link": "https://hbogo.com"
+        "link": "https://hbogo.com",
+        "category": "media"
     }, {
         "key": "espn",
         "name": "ESPN",
         "icon": "espn.png",
-        "link": "https://espn.com/watch"
+        "link": "https://espn.com/watch",
+        "category": "sports"
     }, {
         "key": "cbs_allaccess",
         "name": "CBS All Access",
         "icon": "cbs_allaccess.png",
-        "link": "https://cbs.com/all-access"
+        "link": "https://cbs.com/all-access",
+        "category": "media"
     }, {
         "key": "fubo",
         "name": "Fubo",
         "icon": "fubo.png",
-        "link": "https://fubo.tv"
+        "link": "https://fubo.tv",
+        "category": "sports"
     }, {
         "key": "twitter",
         "name": "Twitter",
         "icon": "twitter.png",
-        "link": "https://twitter.com"
+        "link": "https://twitter.com",
+        "category": "social"
     }, {
         "key": "facebook",
         "name": "Facebook",
         "icon": "facebook.png",
-        "link": "https://facebook.com"
+        "link": "https://facebook.com",
+        "category": "social"
     }, {
         "key": "reddit",
         "name": "Reddit",
         "icon": "reddit.png",
-        "link": "https://reddit.com"
+        "link": "https://reddit.com",
+        "category": "social"
     }, {
         "key": "prime_video",
         "name": "Amazon Prime Video",
         "icon": "prime_video.png",
-        "link": "https://primevideo.com"
+        "link": "https://primevideo.com",
+        "category": "media"
     }, {
         "key": "crackle",
         "name": "Crackle",
         "icon": "crackle.png",
-        "link": "https://crackle.com"
+        "link": "https://crackle.com",
+        "category": "media"
     }, {
         "key": "sling",
         "name": "Sling",
         "icon": "sling.png",
-        "link": "https://sling.com"
+        "link": "https://sling.com",
+        "category": "media"
     }, {
         "key": "apple_tv_plus",
         "name": "Apple TV+",
         "icon": "apple_tv_plus.png",
-        "link": "https://tv.apple.com"
+        "link": "https://tv.apple.com",
+        "category": "media"
     }, {
         "key": "youtube_tv",
         "name": "Youtube TV",
         "icon": "youtube_tv.png",
-        "link": "https://tv.youtube.com"
+        "link": "https://tv.youtube.com",
+        "category": "media"
     }, {
         "key": "shudder",
         "name": "Shudder",
         "icon": "shudder.png",
-        "link": "https://shudder.com"
+        "link": "https://shudder.com",
+        "category": "media"
+    }, {
+        "key": "dark_sky",
+        "name": "Dark Sky",
+        "icon": "dark_sky.png",
+        "link": "https://darksky.net",
+        "category": "other"
+    }, {
+        "key": "crunchyroll",
+        "name": "Crunchyroll",
+        "icon": "crunchyroll.png",
+        "link": "https://crunchyroll.com",
+        "category": "media"
+    }, {
+        "key": "google_maps",
+        "name": "Google Maps",
+        "icon": "google_maps.png",
+        "link": "https://google.com/maps",
+        "category": "other"
     }
 ]

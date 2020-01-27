@@ -2,6 +2,7 @@
   <v-app id="app">
     <SettingsDrawer />
     <v-content>
+      <v-app-bar-nav-icon id="drawer-toggle" dark @click="toggleSettingsOpen()"></v-app-bar-nav-icon>
       <div id="url-input">
         <v-text-field v-model="customUrl" placeholder="Enter an address here to navigate to a site or select below" solo dark dense @keyup.enter="navigateToSite()"></v-text-field>
       </div>
@@ -9,7 +10,6 @@
         <v-btn @click="fullscreenTrick()" color="blue darken-2" dark>Go Fullscreen (car must be in park)</v-btn>
       </div>
       <HomePanel id="home-panel" />
-      <v-app-bar-nav-icon id="drawer-toggle" dark @click="toggleSettingsOpen()"></v-app-bar-nav-icon>
 
       <v-dialog
         v-model="dialog"

@@ -5,19 +5,23 @@ import services from '../../data/services.json'
 const state = {
   services,
   enabledServiceKeys: [],
-  settingsOpen: false
+  settingsOpen: false,
+  serviceCategories: ['media', 'sports', 'social', 'other'],
 }
 
 // getters
 const getters = {
   sortedServices: (state) => {
-    return _.orderBy(state.services, ['name'], ['asc'])
+    return _.orderBy(state.services, [service => service.name.toLowerCase()], ['asc'])
   },
   enabledServices: (state, getters) => {
     return getters.sortedServices.filter(service => state.enabledServiceKeys.includes(service.key))
   },
   disabledServices: (state, getters) => {
     return getters.sortedServices.filter(service => !state.enabledServiceKeys.includes(service.key))
+  },
+  servicesByCategory: (state, getters) => (category) => {
+    return getters.sortedServices.filter(service => service.category === category)
   }
 }
 

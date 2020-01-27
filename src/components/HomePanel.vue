@@ -1,23 +1,31 @@
 <template>
   <div class="text-center">
     <div class="home-panel">
-      <div class="app-tile" v-for="service in enabledServices" :key="service.key">
-        <a :href="service.link">
-          <img class="app-image" :src="getImgUrl(service.icon)" :alt="service.name">
-        </a>
-      </div>
+      <template v-for="category of serviceCategories">
+        <template v-if="filterServicesByCategory(category).length">
+          <div class="category-label" :key="category">{{category}}</div>
+          <div class="category-list" :key="category">
+            <a :href="service.link" v-for="service in filterServicesByCategory(category)" :key="service.key">
+              <div class="app-tile">
+                <img class="app-image" :src="getImgUrl(service.icon)" :alt="service.name">
+              </div>
+            </a>
+          </div>
+        </template>
+      </template>
     </div>
     <div>More services can be added from the settings menu (changes will be saved)</div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'HomePanel',
   computed: {
-    ...mapGetters('data', ['enabledServices'])
+    ...mapGetters('data', ['enabledServices']),
+    ...mapState('data', ['serviceCategories']),
   },
   methods: {
     getImgUrl: function(iconPath) {
@@ -29,6 +37,9 @@ export default {
         // igonre error
       }
       return image
+    },
+    filterServicesByCategory: function(category) {
+      return this.enabledServices.filter(service => service.category === category)
     }
   }
 }
@@ -38,14 +49,30 @@ export default {
 <style scoped>
 .home-panel {
   display: flex;
+  flex-direction: column;
+  padding: 35px 100px 15px;
+}
+@media only screen and (max-width: 600px) {
+  .home-panel {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.category-list {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px 50px;
+  justify-content: left;
+  padding: 20px 0;
+}
+.category-label {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase
 }
 .app-tile {
-  width: 300px;
-  height: 110px;
-  margin: 40px;
+  max-width: 240px;
+  margin: 30px;
   padding: 5px;
 }
 .app-image {
