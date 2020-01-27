@@ -4,7 +4,7 @@
     <v-content>
       <v-app-bar-nav-icon id="drawer-toggle" dark @click="toggleSettingsOpen()"></v-app-bar-nav-icon>
       <div id="url-input">
-        <v-text-field v-model="customUrl" placeholder="Enter an address here to navigate to a site or select below" solo dark dense @keyup.enter="navigateToSite()"></v-text-field>
+        <v-text-field v-model="customUrl" placeholder="Enter address" solo dark dense @keyup.enter="navigateToSite()"></v-text-field>
       </div>
       <div id="fullscreen-btn" class="text-center" v-if="showFullscreenButton">
         <v-btn @click="fullscreenTrick()" color="blue darken-2" dark>Go Fullscreen (car must be in park)</v-btn>
@@ -96,7 +96,13 @@ export default {
 
 <style scoped>
 #url-input {
-  margin: 20px 100px -30px 100px;
+  margin: 20px 120px -30px;
+}
+@media only screen and (max-width: 600px) {
+  #url-input {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
 }
 
 #fullscreen-btn {

@@ -50,12 +50,12 @@ export default {
 .home-panel {
   display: flex;
   flex-direction: column;
-  padding: 35px 100px 15px;
+  padding: 35px 60px 15px;
 }
 @media only screen and (max-width: 600px) {
   .home-panel {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 }
 .category-list {
@@ -71,8 +71,9 @@ export default {
   text-transform: uppercase
 }
 .app-tile {
-  max-width: 300px;
+  max-width: 240px;
   height: 100%;
+  max-height: 135px;
   padding: 35px;
 }
 .app-image {
