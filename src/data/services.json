@@ -153,5 +153,11 @@
         "icon": "google_maps.png",
         "link": "https://google.com/maps",
         "category": "other"
+    }, {
+        "key": "plugshare",
+        "name": "PlugShare",
+        "icon": "plugshare.png",
+        "link": "https://plugshare.com",
+        "category": "other"
     }
 ]
