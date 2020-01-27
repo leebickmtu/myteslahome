@@ -71,9 +71,9 @@ export default {
   text-transform: uppercase
 }
 .app-tile {
-  max-width: 240px;
-  margin: 30px;
-  padding: 5px;
+  max-width: 300px;
+  height: 100%;
+  padding: 35px;
 }
 .app-image {
   height: 100%;
