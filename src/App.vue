@@ -88,7 +88,7 @@ export default {
 
 <style>
 #app {
-  color: white;
+  color: #d2d2d2;
   background-color: black;
 }
 </style>

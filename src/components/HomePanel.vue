@@ -2,16 +2,16 @@
   <div class="text-center">
     <div class="home-panel">
       <template v-for="category of serviceCategories">
-        <template v-if="filterServicesByCategory(enabledServices, category).length">
-          <div class="category-label" :key="category">{{category}}</div>
-          <div class="category-list" :key="category">
+        <div :key="category" v-if="filterServicesByCategory(enabledServices, category).length">
+          <div class="category-label">{{category}}</div>
+          <div class="category-list">
             <a :href="service.link" v-for="service in filterServicesByCategory(enabledServices, category)" :key="service.key">
               <div class="app-tile">
                 <img class="app-image" :src="getImgUrl(service.icon)" :alt="service.name">
               </div>
             </a>
           </div>
-        </template>
+        </div>
       </template>
     </div>
     <div>More services can be added from the settings menu (changes will be saved)</div>
@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     getImgUrl: function(iconPath) {
-      console.log(iconPath)
       let image = null;
       try {
         image = require(`../assets/logos/${iconPath}`)
@@ -60,13 +59,13 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  padding: 20px 0;
+  padding: 14px 0;
 }
 .category-label {
   font-size: 1.2em;
   font-weight: bold;
   text-align: left;
-  text-transform: uppercase
+  text-transform: capitalize
 }
 .app-tile {
   max-width: 240px;

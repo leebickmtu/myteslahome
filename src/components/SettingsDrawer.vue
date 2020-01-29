@@ -78,15 +78,10 @@ import { mapGetters, mapActions, mapState } from 'vuex'
 
 export default {
   name: 'SettingsDrawer',
-  props: {
-    dialog: {
-      type: Boolean,
-      default: false
-    }
-  },
   data() {
     return {
       model: '',
+      dialog: false
     }
   },
   computed: {
