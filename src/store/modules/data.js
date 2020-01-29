@@ -5,7 +5,6 @@ import services from '../../data/services.json'
 const state = {
   services,
   enabledServiceKeys: [],
-  settingsOpen: false,
   serviceCategories: ['media', 'sports', 'social', 'other'],
 }
 
@@ -49,12 +48,6 @@ const actions = {
   removeEnabledServiceKey({ commit, dispatch }, payload) {
     commit('removeEnabledServiceKey', payload)
     dispatch('saveEnabledServiceKeys')
-  },
-  setSettingsOpen({ commit }, payload) {
-    commit('setSettingsOpen', payload)
-  },
-  toggleSettingsOpen({ commit, state }) {
-    commit('setSettingsOpen', !state.settingsOpen)
   }
 }
 
@@ -68,9 +61,6 @@ const mutations = {
   },
   removeEnabledServiceKey(state, payload) {
     state.enabledServiceKeys = state.enabledServiceKeys.filter(k => k !== payload)
-  },
-  setSettingsOpen(state, payload) {
-    state.settingsOpen = payload
   }
 }
 

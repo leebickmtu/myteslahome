@@ -2,10 +2,10 @@
   <div class="text-center">
     <div class="home-panel">
       <template v-for="category of serviceCategories">
-        <template v-if="filterServicesByCategory(category).length">
+        <template v-if="filterServicesByCategory(enabledServices, category).length">
           <div class="category-label" :key="category">{{category}}</div>
           <div class="category-list" :key="category">
-            <a :href="service.link" v-for="service in filterServicesByCategory(category)" :key="service.key">
+            <a :href="service.link" v-for="service in filterServicesByCategory(enabledServices, category)" :key="service.key">
               <div class="app-tile">
                 <img class="app-image" :src="getImgUrl(service.icon)" :alt="service.name">
               </div>
@@ -38,22 +38,20 @@ export default {
       }
       return image
     },
-    filterServicesByCategory: function(category) {
-      return this.enabledServices.filter(service => service.category === category)
+    filterServicesByCategory: function(services, category) {
+      return services.filter(service => service.category === category)
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 .home-panel {
   display: flex;
   flex-direction: column;
   padding: 35px 60px 15px;
-}
-@media only screen and (max-width: 600px) {
-  .home-panel {
+
+  @media only screen and (max-width: 600px) {
     padding-left: 25px;
     padding-right: 25px;
   }

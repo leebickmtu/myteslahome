@@ -2,7 +2,6 @@
   <v-app id="app">
     <SettingsDrawer />
     <v-content>
-      <v-app-bar-nav-icon id="drawer-toggle" dark @click="toggleSettingsOpen()"></v-app-bar-nav-icon>
       <div id="url-input">
         <v-text-field v-model="customUrl" placeholder="Enter address" solo dark dense @keyup.enter="navigateToSite()"></v-text-field>
       </div>
@@ -58,7 +57,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('data', ['loadEnabledServiceKeys', 'toggleSettingsOpen']),
+    ...mapActions('data', ['loadEnabledServiceKeys']),
 
     navigateToSite() {
       let parsed = this.customUrl.trim()
@@ -94,12 +93,11 @@ export default {
 }
 </style>
 
-<style scoped>
+<style scoped lang="scss">
 #url-input {
   margin: 20px 120px -30px;
-}
-@media only screen and (max-width: 600px) {
-  #url-input {
+
+  @media only screen and (max-width: 600px) {
     margin-left: 80px;
     margin-right: 80px;
   }
@@ -110,17 +108,9 @@ export default {
   top: 80px;
   width:100%;
 }
-
 #home-panel {
   margin-bottom: 30px;
 }
-
-#drawer-toggle {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-}
-
 #dialog-message {
   font-weight: bold;
   font-size: 1.3em;
