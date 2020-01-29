@@ -86,7 +86,7 @@ export default {
   },
   data() {
     return {
-      model: 'tab-1',
+      model: '',
     }
   },
   computed: {
