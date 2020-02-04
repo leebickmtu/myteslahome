@@ -159,5 +159,11 @@
         "icon": "plugshare.png",
         "link": "https://plugshare.com",
         "category": "other"
+    }, {
+        "key": "dazn",
+        "name": "DAZN",
+        "icon": "dazn.png",
+        "link": "https://www.dazn.com",
+        "category": "sports"
     }
 ]
