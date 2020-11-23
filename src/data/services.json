@@ -165,5 +165,17 @@
         "icon": "dazn.png",
         "link": "https://www.dazn.com",
         "category": "sports"
+    }, {
+        "key": "abrp",
+        "name": "A Better Routeplanner",
+        "icon": "abrp.png",
+        "link": "https://abetterrouteplanner.com",
+        "category": "other"
+    }, {
+        "key": "tmc",
+        "name": "Tesla Motors Club",
+        "icon": "tmc.png",
+        "link": "https://teslamotorsclub.com",
+        "category": "social"
     }
 ]
