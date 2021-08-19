@@ -1,12 +1,13 @@
 <template>
-  <v-app id="app">
-    <SettingsDrawer />
-    <v-content>
+  <v-app id="app-container">
+    <!-- <SettingsDrawer /> -->
+    <v-main>
       <div id="url-input">
-        <v-text-field v-model="customUrl" placeholder="Enter address" solo dark dense @keyup.enter="navigateToSite()"></v-text-field>
+        <input v-model="customUrl" type="text" placeholder="Enter address" @keyup.enter="navigateToSite()" >
+        <!-- <v-text-field v-model="customUrl" placeholder="Enter address" solo dense @keyup.enter="navigateToSite()"></v-text-field> -->
       </div>
       <div id="fullscreen-btn" class="text-center" v-if="showFullscreenButton">
-        <v-btn @click="fullscreenTrick()" color="blue darken-2" dark>Go Fullscreen (car must be in park)</v-btn>
+        <v-btn @click="fullscreenTrick()" color="primary">Go Fullscreen (car must be in park)</v-btn>
       </div>
       <HomePanel id="home-panel" />
 
@@ -16,7 +17,7 @@
         persistent
         width="300">
 
-        <v-card color="blue darken-2" dark>
+        <v-card color="primary">
           <v-card-text>
             <div id="dialog-message">Select "Go to Site" on the next page.</div>
             <v-progress-linear
@@ -27,27 +28,27 @@
           </v-card-text>
         </v-card>
       </v-dialog>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
 <script>
 import HomePanel from './components/HomePanel.vue'
-import SettingsDrawer from './components/SettingsDrawer.vue'
+// import SettingsDrawer from './components/SettingsDrawer.vue'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'App',
+
   components: {
     HomePanel,
-    SettingsDrawer
+    // SettingsDrawer
   },
-  data: function() {
-    return {
-      dialog: false,
-      customUrl: ''
-    }
-  },
+
+  data: () => ({
+    dialog: false,
+    customUrl: ''
+  }),
   computed: {
     locationOrigin: function() {
       return window.location.origin
@@ -87,7 +88,7 @@ export default {
 </script>
 
 <style>
-#app {
+#app-container {
   color: #d2d2d2;
   background-color: black;
 }
@@ -100,6 +101,13 @@ export default {
   @media only screen and (max-width: 600px) {
     margin-left: 80px;
     margin-right: 80px;
+  }
+
+  input {
+    width: 100%;
+    padding: 0 4px 0 4px;
+    color: white;
+    border: 1px solid rgb(187, 134, 252);
   }
 }
 

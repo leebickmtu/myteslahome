@@ -10,7 +10,6 @@
     <template v-slot:activator="{ on }">
       <v-btn
         color="primary"
-        dark
         fixed
         top
         left
@@ -21,9 +20,9 @@
        <v-icon>mdi-menu</v-icon>
       </v-btn>
     </template>
-    <v-card tile dark>
-      <v-toolbar tabs dark flat color="primary">
-        <v-btn icon dark @click="dialog = false">
+    <v-card tile>
+      <v-toolbar tabs flat color="primary">
+        <v-btn icon @click="dialog = false">
           <v-icon>mdi-close</v-icon>
         </v-btn>
         <v-toolbar-title>Settings</v-toolbar-title>
@@ -32,7 +31,6 @@
           <v-tabs
             v-model="model"
             centered
-            dark
             background-color="primary"
             show-arrows
           >
@@ -48,7 +46,7 @@
       </v-toolbar>
 
       <v-card-text id="dialog-body" :style="{maxHeight: ($vuetify.breakpoint.smAndDown ? null : '60vh')}">
-        <v-tabs-items v-model="model" dark background-color="none">
+        <v-tabs-items v-model="model" background-color="none">
           <v-tab-item
             v-for="category in serviceCategories"
             :key="category"
@@ -78,12 +76,10 @@ import { mapGetters, mapActions, mapState } from 'vuex'
 
 export default {
   name: 'SettingsDrawer',
-  data() {
-    return {
-      model: '',
-      dialog: false
-    }
-  },
+  data: () => ({
+    model: '',
+    dialog: false
+  }),
   computed: {
     ...mapGetters('data', ['enabledServices', 'disabledServices']),
     ...mapState('data', ['serviceCategories'])
