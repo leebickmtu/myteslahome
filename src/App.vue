@@ -1,10 +1,9 @@
 <template>
   <v-app id="app-container">
-    <!-- <SettingsDrawer /> -->
+    <SettingsDrawer />
     <v-main>
       <div id="url-input">
-        <input v-model="customUrl" type="text" placeholder="Enter address" @keyup.enter="navigateToSite()" >
-        <!-- <v-text-field v-model="customUrl" placeholder="Enter address" solo dense @keyup.enter="navigateToSite()"></v-text-field> -->
+        <v-text-field v-model="customUrl" placeholder="Enter address" variant="outlined" density="compact" hide-details @keyup.enter="navigateToSite()"></v-text-field>
       </div>
       <div id="fullscreen-btn" class="text-center" v-if="showFullscreenButton">
         <v-btn @click="fullscreenTrick()" color="primary">Go Fullscreen (car must be in park)</v-btn>
@@ -34,7 +33,7 @@
 
 <script>
 import HomePanel from './components/HomePanel.vue'
-// import SettingsDrawer from './components/SettingsDrawer.vue'
+import SettingsDrawer from './components/SettingsDrawer.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -42,7 +41,7 @@ export default {
 
   components: {
     HomePanel,
-    // SettingsDrawer
+    SettingsDrawer
   },
 
   data: () => ({
@@ -88,26 +87,19 @@ export default {
 </script>
 
 <style>
-#app-container {
+/* #app-container {
   color: #d2d2d2;
   background-color: black;
-}
+} */
 </style>
 
 <style scoped lang="scss">
 #url-input {
-  margin: 20px 120px -30px;
+  margin: 20px 120px;
 
   @media only screen and (max-width: 600px) {
     margin-left: 80px;
-    margin-right: 80px;
-  }
-
-  input {
-    width: 100%;
-    padding: 0 4px 0 4px;
-    color: white;
-    border: 1px solid rgb(187, 134, 252);
+    margin-right: 25px;
   }
 }
 

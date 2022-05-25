@@ -1,11 +1,17 @@
 import { createStore } from 'vuex'
 import data from './modules/data'
 
-const debug = process.env.NODE_ENV !== 'production'
-
 export default createStore({
+  state: {
+  },
+  getters: {
+  },
+  mutations: {
+  },
+  actions: {
+  },
   modules: {
     data
-  },
-  strict: debug
+  }
 })
+
