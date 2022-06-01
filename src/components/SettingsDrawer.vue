@@ -67,28 +67,24 @@
   </v-dialog>
 </template>
 
-<script>
+<script setup>
+import { computed, ref } from 'vue'
 import { useDisplay } from 'vuetify'
-import { mapGetters, mapActions, mapState } from 'vuex'
+import { useStore } from 'vuex'
 
-export default {
-  name: 'SettingsDrawer',
-  data: () => ({
-    model: '',
-    dialog: false,
-    smAndDown: useDisplay().smAndDown
-  }),
-  computed: {
-    ...mapGetters('data', ['enabledServices', 'disabledServices']),
-    ...mapState('data', ['serviceCategories'])
-  },
-  methods: {
-    ...mapActions('data', ['addEnabledServiceKey', 'removeEnabledServiceKey']),
+const store = useStore()
+const enabledServices = computed(() => store.getters.enabledServices)
+const disabledServices = computed(() => store.getters.disabledServices)
+const serviceCategories = computed(() => store.state.serviceCategories)
+const addEnabledServiceKey = (key) => store.dispatch('addEnabledServiceKey', key)
+const removeEnabledServiceKey = (key) => store.dispatch('removeEnabledServiceKey', key)
 
-    filterServicesByCategory: function(services, category) {
-      return services.filter(service => service.category === category)
-    }
-  }
+const model = ref('')
+const dialog = ref(false)
+const smAndDown = useDisplay().smAndDown
+
+function filterServicesByCategory(services, category) {
+  return services.filter(service => service.category === category)
 }
 </script>
 

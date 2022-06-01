@@ -18,29 +18,26 @@
   </div>
 </template>
 
-<script>
-import { mapGetters, mapState } from 'vuex'
+<script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 
-export default {
-  name: 'HomePanel',
-  computed: {
-    ...mapGetters('data', ['enabledServices']),
-    ...mapState('data', ['serviceCategories']),
-  },
-  methods: {
-    getImgUrl: function(iconPath) {
-      let image = null;
-      try {
-        image = require(`../assets/logos/${iconPath}`)
-      } catch {
-        // ignore error
-      }
-      return image
-    },
-    filterServicesByCategory: function(services, category) {
-      return services.filter(service => service.category === category)
-    }
+const store = useStore()
+const enabledServices = computed(() => store.getters.enabledServices)
+const serviceCategories = computed(() => store.state.serviceCategories)
+
+function getImgUrl(iconPath) {
+  let image = null;
+  try {
+    image = require(`../assets/logos/${iconPath}`)
+  } catch {
+    // ignore error
   }
+  return image
+}
+
+function filterServicesByCategory(services, category) {
+  return services.filter(service => service.category === category)
 }
 </script>
 
