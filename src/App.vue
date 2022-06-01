@@ -31,58 +31,49 @@
   </v-app>
 </template>
 
-<script>
+<script setup>
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
+
 import HomePanel from './components/HomePanel.vue'
 import SettingsDrawer from './components/SettingsDrawer.vue'
-import { mapActions } from 'vuex'
 
-export default {
-  name: 'App',
+const store = useStore()
+const loadEnabledServiceKeys = () => store.dispatch('loadEnabledServiceKeys')
 
-  components: {
-    HomePanel,
-    SettingsDrawer
-  },
+const dialog = ref(false)
+const customUrl = ref('')
 
-  data: () => ({
-    dialog: false,
-    customUrl: ''
-  }),
-  computed: {
-    locationOrigin: function() {
-      return window.location.origin
-    },
-    showFullscreenButton: function() {
-      return !document.referrer.includes('youtube')
-    }
-  },
-  methods: {
-    ...mapActions('data', ['loadEnabledServiceKeys']),
+const locationOrigin = computed(() => {
+  return window.location.origin
+})
 
-    navigateToSite() {
-      let parsed = this.customUrl.trim()
-      if (!parsed.startsWith('http') && !parsed.startsWith('https')) {
-        parsed = `http://${parsed}`
-      }
-      try {
-        const url = new URL(parsed)
-        window.location.assign(url)
-      }
-      catch {
-        // ignore error
-      }
-    },
-    fullscreenTrick() {
-      this.dialog = true
-      window.setTimeout(() => {
-        this.dialog = false
-        window.location.assign(`https://youtube.com/redirect?q=${this.locationOrigin}`)
-      }, 5000)
-    }
-  },
-  created: function() {
-    this.loadEnabledServiceKeys()
+const showFullscreenButton = computed(() => {
+  return !document.referrer.includes('youtube')
+})
+
+loadEnabledServiceKeys()
+
+function navigateToSite() {
+  let parsed = this.customUrl.trim()
+  if (!parsed.startsWith('http') && !parsed.startsWith('https')) {
+    parsed = `http://${parsed}`
   }
+  try {
+    const url = new URL(parsed)
+    window.location.assign(url)
+  }
+  catch {
+    // ignore error
+  }
+}
+
+function fullscreenTrick() {
+  this.dialog = true
+  window.setTimeout(() => {
+    this.dialog = false
+    window.location.assign(`https://youtube.com/redirect?q=${locationOrigin.value}`)
+  }, 5000)
 }
 </script>
 
