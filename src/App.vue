@@ -1,12 +1,12 @@
 <template>
-  <v-app id="app">
+  <v-app id="app-container">
     <SettingsDrawer />
-    <v-content>
+    <v-main>
       <div id="url-input">
-        <v-text-field v-model="customUrl" placeholder="Enter address" solo dark dense @keyup.enter="navigateToSite()"></v-text-field>
+        <v-text-field v-model="customUrl" placeholder="Enter address" variant="outlined" density="compact" hide-details @keyup.enter="navigateToSite()"></v-text-field>
       </div>
       <div id="fullscreen-btn" class="text-center" v-if="showFullscreenButton">
-        <v-btn @click="fullscreenTrick()" color="blue darken-2" dark>Go Fullscreen (car must be in park)</v-btn>
+        <v-btn @click="fullscreenTrick()" color="primary">Go Fullscreen (car must be in park)</v-btn>
       </div>
       <HomePanel id="home-panel" />
 
@@ -16,7 +16,7 @@
         persistent
         width="300">
 
-        <v-card color="blue darken-2" dark>
+        <v-card color="primary">
           <v-card-text>
             <div id="dialog-message">Select "Go to Site" on the next page.</div>
             <v-progress-linear
@@ -27,7 +27,7 @@
           </v-card-text>
         </v-card>
       </v-dialog>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
@@ -38,16 +38,16 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'App',
+
   components: {
     HomePanel,
     SettingsDrawer
   },
-  data: function() {
-    return {
-      dialog: false,
-      customUrl: ''
-    }
-  },
+
+  data: () => ({
+    dialog: false,
+    customUrl: ''
+  }),
   computed: {
     locationOrigin: function() {
       return window.location.origin
@@ -87,19 +87,19 @@ export default {
 </script>
 
 <style>
-#app {
+/* #app-container {
   color: #d2d2d2;
   background-color: black;
-}
+} */
 </style>
 
 <style scoped lang="scss">
 #url-input {
-  margin: 20px 120px -30px;
+  margin: 20px 120px;
 
   @media only screen and (max-width: 600px) {
     margin-left: 80px;
-    margin-right: 80px;
+    margin-right: 25px;
   }
 }
 

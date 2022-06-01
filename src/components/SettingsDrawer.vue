@@ -1,29 +1,25 @@
 <template>
   <v-dialog
       v-model="dialog"
-      :fullscreen="$vuetify.breakpoint.smAndDown"
-      max-width="60%"
       scrollable
       persistent
-      :transition="($vuetify.breakpoint.smAndDown ? 'dialog-bottom-transition' : 'dialog-transition')"
+      :fullscreen="smAndDown"
+      :style="{maxWidth: (smAndDown ? null : '60%')}"
     >
-    <template v-slot:activator="{ on }">
+    <template v-slot:activator="{ props }">
       <v-btn
+        id="menu-btn"
         color="primary"
-        dark
-        fixed
-        top
-        left
-        fab
-        small
-        v-on="on"
+        icon="mdi-menu"
+        position="fixed"
+        size="small"
+        v-bind="props"
       >
-       <v-icon>mdi-menu</v-icon>
       </v-btn>
     </template>
-    <v-card tile dark>
-      <v-toolbar tabs dark flat color="primary">
-        <v-btn icon dark @click="dialog = false">
+    <v-card tile>
+      <v-toolbar id="dialog-header" flat color="primary">
+        <v-btn icon @click="dialog = false">
           <v-icon>mdi-close</v-icon>
         </v-btn>
         <v-toolbar-title>Settings</v-toolbar-title>
@@ -32,14 +28,12 @@
           <v-tabs
             v-model="model"
             centered
-            dark
             background-color="primary"
-            show-arrows
           >
             <v-tab
               v-for="category in serviceCategories"
               :key="category"
-              :href="`#tab-${category}`"
+              :value="`tab-${category}`"
             >
               {{ category }}
             </v-tab>
@@ -47,9 +41,9 @@
         </template>
       </v-toolbar>
 
-      <v-card-text id="dialog-body" :style="{maxHeight: ($vuetify.breakpoint.smAndDown ? null : '60vh')}">
-        <v-tabs-items v-model="model" dark background-color="none">
-          <v-tab-item
+      <v-card-text id="dialog-body" :style="{maxHeight: (smAndDown ? null : '60vh')}">
+        <v-window v-model="model" background-color="none">
+          <v-window-item
             v-for="category in serviceCategories"
             :key="category"
             :value="`tab-${category}`"
@@ -66,24 +60,24 @@
                 {{service.name}}
               </v-list-item>
             </v-list>
-          </v-tab-item>
-        </v-tabs-items>
+          </v-window-item>
+        </v-window>
       </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
+import { useDisplay } from 'vuetify'
 import { mapGetters, mapActions, mapState } from 'vuex'
 
 export default {
   name: 'SettingsDrawer',
-  data() {
-    return {
-      model: '',
-      dialog: false
-    }
-  },
+  data: () => ({
+    model: '',
+    dialog: false,
+    smAndDown: useDisplay().smAndDown
+  }),
   computed: {
     ...mapGetters('data', ['enabledServices', 'disabledServices']),
     ...mapState('data', ['serviceCategories'])
@@ -99,6 +93,14 @@ export default {
 </script>
 
 <style scoped>
+#menu-btn {
+  left: 18px;
+  top: 18px;
+  z-index: 1;
+}
+#dialog-header {
+  flex-shrink: 0;
+}
 #dialog-body {
   height: 100%;
 }

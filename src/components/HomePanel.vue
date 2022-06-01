@@ -33,7 +33,7 @@ export default {
       try {
         image = require(`../assets/logos/${iconPath}`)
       } catch {
-        // igonre error
+        // ignore error
       }
       return image
     },
