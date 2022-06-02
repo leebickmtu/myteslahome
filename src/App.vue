@@ -55,7 +55,7 @@ const showFullscreenButton = computed(() => {
 loadEnabledServiceKeys()
 
 function navigateToSite() {
-  let parsed = this.customUrl.trim()
+  let parsed = customUrl.value.trim()
   if (!parsed.startsWith('http') && !parsed.startsWith('https')) {
     parsed = `http://${parsed}`
   }
@@ -69,9 +69,9 @@ function navigateToSite() {
 }
 
 function fullscreenTrick() {
-  this.dialog = true
+  dialog.value = true
   window.setTimeout(() => {
-    this.dialog = false
+    dialog.value = false
     window.location.assign(`https://youtube.com/redirect?q=${locationOrigin.value}`)
   }, 5000)
 }
