@@ -45,7 +45,7 @@ const dialog = ref(false)
 const customUrl = ref('')
 
 const locationOrigin = computed(() => {
-  return window.location.origin
+  return window.location.href
 })
 
 const showFullscreenButton = computed(() => {
