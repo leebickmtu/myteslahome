@@ -90,7 +90,7 @@ function filterServicesByCategory(services, category) {
 
 <style scoped>
 #menu-btn {
-  left: 18px;
+  left: 10px;
   top: 18px;
   z-index: 1;
 }
