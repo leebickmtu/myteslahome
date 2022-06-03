@@ -177,5 +177,11 @@
         "icon": "tmc.png",
         "link": "https://teslamotorsclub.com",
         "category": "social"
+    }, {
+        "key": "google_news",
+        "name": "Google News",
+        "icon": "google_news.png",
+        "link": "https://news.google.com",
+        "category": "social"
     }
 ]
