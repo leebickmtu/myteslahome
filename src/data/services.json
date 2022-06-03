@@ -53,15 +53,9 @@
         "default": true
     }, {
         "key": "hbo_now",
-        "name": "HBO NOW",
-        "icon": "hbo_now.png",
-        "link": "https://hbonow.com",
-        "category": "media"
-    }, {
-        "key": "hbo_go",
-        "name": "HBO GO",
-        "icon": "hbo_go.png",
-        "link": "https://hbogo.com",
+        "name": "HBO Max",
+        "icon": "hbo_max.png",
+        "link": "https://hbomax.com",
         "category": "media"
     }, {
         "key": "espn",
