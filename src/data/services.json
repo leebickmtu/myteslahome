@@ -71,9 +71,9 @@
         "category": "sports"
     }, {
         "key": "cbs_allaccess",
-        "name": "CBS All Access",
-        "icon": "cbs_allaccess.png",
-        "link": "https://cbs.com/all-access",
+        "name": "Paramount Plus",
+        "icon": "paramount_plus.png",
+        "link": "https://paramountplus.com",
         "category": "media"
     }, {
         "key": "fubo",
