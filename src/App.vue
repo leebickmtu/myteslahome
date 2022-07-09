@@ -5,7 +5,7 @@
       <div id="url-input">
         <v-text-field v-model="customUrl" placeholder="Enter address" variant="outlined" density="compact" hide-details @keyup.enter="navigateToSite()"></v-text-field>
       </div>
-      <div id="fullscreen-btn" class="text-center" v-if="showFullscreenButton">
+      <div id="fullscreen-btn" class="d-flex justify-center" v-if="showFullscreenButton">
         <v-btn @click="fullscreenTrick()" color="primary">Go Fullscreen (car must be in park)</v-btn>
       </div>
       <HomePanel id="home-panel" />
