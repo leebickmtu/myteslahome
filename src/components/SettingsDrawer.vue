@@ -89,7 +89,7 @@ function filterServicesByCategory(services, category) {
 
 <style scoped lang="scss">
 .v-dialog:not(.v-dialog--fullscreen) {
-  ::v-deep .v-overlay__content {
+  :deep(.v-overlay__content) {
     width: unset !important;
   }
 }
