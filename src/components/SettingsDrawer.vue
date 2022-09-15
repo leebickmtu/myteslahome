@@ -4,7 +4,6 @@
       scrollable
       persistent
       :fullscreen="smAndDown"
-      :style="{maxWidth: (smAndDown ? null : '60%')}"
     >
     <template v-slot:activator="{ props }">
       <v-btn
@@ -88,7 +87,12 @@ function filterServicesByCategory(services, category) {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.v-dialog:not(.v-dialog--fullscreen) {
+  ::v-deep .v-overlay__content {
+    width: unset !important;
+  }
+}
 #menu-btn {
   left: 10px;
   top: 18px;
