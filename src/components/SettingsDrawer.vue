@@ -49,14 +49,18 @@
           >
             <v-list>
               <v-list-item v-for="service of filterServicesByCategory(enabledServices, category)" :key="service.key" @click="removeEnabledServiceKey(service.key)">
-                <div class="checkbox checked"></div>
-                {{service.name}}
+                <template v-slot:prepend>
+                  <div class="checkbox checked"></div>
+                </template>
+                <v-list-item-title v-text="service.name"></v-list-item-title>
               </v-list-item>
             </v-list>
             <v-list>
               <v-list-item v-for="service of filterServicesByCategory(disabledServices, category)" :key="service.key" @click="addEnabledServiceKey(service.key)">
-                <div class="checkbox"></div>
-                {{service.name}}
+                <template v-slot:prepend>
+                  <div class="checkbox"></div>
+                </template>
+                <v-list-item-title v-text="service.name"></v-list-item-title>
               </v-list-item>
             </v-list>
           </v-window-item>
