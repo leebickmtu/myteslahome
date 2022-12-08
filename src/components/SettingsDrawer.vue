@@ -18,10 +18,9 @@
     </template>
     <v-card tile>
       <v-toolbar id="dialog-header" flat color="primary">
-        <v-btn icon @click="dialog = false">
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
         <v-toolbar-title>Settings</v-toolbar-title>
+        <v-spacer />
+        <v-btn size="x-small" icon="mdi-close" @click="dialog = false"></v-btn>
 
         <template v-slot:extension>
           <v-tabs
