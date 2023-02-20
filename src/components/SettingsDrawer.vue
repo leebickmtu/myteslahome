@@ -51,7 +51,7 @@
                 <template v-slot:prepend>
                   <div class="checkbox checked"></div>
                 </template>
-                <v-list-item-title v-text="service.name"></v-list-item-title>
+                <v-list-item-title>{{service.name}}</v-list-item-title>
               </v-list-item>
             </v-list>
             <v-list>
@@ -59,7 +59,7 @@
                 <template v-slot:prepend>
                   <div class="checkbox"></div>
                 </template>
-                <v-list-item-title v-text="service.name"></v-list-item-title>
+                <v-list-item-title>{{service.name}}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-window-item>
